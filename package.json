@@ -1,16 +1,18 @@
 {
-  "name": "squad-bits-deploy",
+  "name": "squad-bits-coop-platformer",
   "version": "1.0.0",
   "private": true,
-  "description": "Launcher and source bundle for Squad Bits, a cooperative 2D platform game.",
+  "description": "Jogo cooperativo de plataforma 2D para até 8 jogadores, com 30 fases e salas privadas.",
+  "main": "server.js",
   "scripts": {
-    "postinstall": "node -e \"require('extract-zip')('squad-bits.zip').catch(e => { console.error(e); process.exit(1); })\"",
-    "start": "cd squad-bits && node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "express": "^4.21.2",
-    "extract-zip": "^2.0.1",
     "socket.io": "^4.8.1"
   }
 }
