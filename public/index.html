@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Squad Bits: aventura cooperativa de plataforma para até oito jogadores.">
+  <title>Squad Bits — Uma equipe. Muitas fases.</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Squad Bits início">
+        <span class="brand-mark"><i></i><i></i><i></i><i></i></span>
+        <span>SQUAD<span class="brand-light">BITS</span></span>
+      </a>
+      <div class="top-status"><span class="online-dot"></span> AVENTURA COOPERATIVA <span class="top-sep">·</span> ATÉ 8 JOGADORES</div>
+      <div class="version-chip">30 FASES</div>
+    </header>
+
+    <section id="homeScreen" class="screen home-screen">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> PEQUENOS HERÓIS, GRANDES DESAFIOS</div>
+        <h1>Uma equipe.<br><span>Um mundo</span> de puzzles.</h1>
+        <p>Saltem, ativem mecanismos e encontrem a saída juntos. Cada fase pede um pouco mais de coordenação.</p>
+        <div class="feature-row">
+          <div class="feature"><span class="feature-icon">✦</span><span><b>30 fases</b><small>dificuldade crescente</small></span></div>
+          <div class="feature"><span class="feature-icon">⌘</span><span><b>Até 8 amigos</b><small>salas privadas</small></span></div>
+          <div class="feature"><span class="feature-icon">▧</span><span><b>Pixel art</b><small>6 mundos coloridos</small></span></div>
+        </div>
+      </div>
+
+      <div class="home-art" aria-label="Ilustração de personagens pixel art">
+        <div class="sun-orbit orbit-one"></div><div class="sun-orbit orbit-two"></div>
+        <div class="art-cloud cloud-a"></div><div class="art-cloud cloud-b"></div>
+        <div class="art-platform platform-back"></div><div class="art-platform platform-front"></div>
+        <div class="hero-sprite sprite-a"><span class="eye e1"></span><span class="eye e2"></span><span class="mouth"></span></div>
+        <div class="hero-sprite sprite-b"><span class="eye e1"></span><span class="eye e2"></span><span class="mouth"></span></div>
+        <div class="hero-sprite sprite-c"><span class="eye e1"></span><span class="eye e2"></span><span class="mouth"></span></div>
+        <div class="spark spark-a">✦</div><div class="spark spark-b">✧</div><div class="spark spark-c">+</div>
+        <div class="art-caption">JUNTOS, NINGUÉM VAI FICAR PARA TRÁS!</div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-heading"><div><span class="card-kicker">COMECE SUA AVENTURA</span><h2>Entrar no mundo</h2></div><div class="players-badge"><span>●</span> 1—8 PLAYERS</div></div>
+        <label class="field-label" for="playerName">SEU NOME</label>
+        <input id="playerName" class="text-input" maxlength="14" autocomplete="nickname" placeholder="Como podemos te chamar?" value="Jogador">
+        <div class="action-buttons">
+          <button id="createBtn" class="btn btn-primary"><span>＋</span> CRIAR SALA <b>→</b></button>
+          <div class="join-wrap"><input id="roomCodeInput" class="text-input code-input" maxlength="6" placeholder="CÓDIGO" aria-label="Código da sala"><button id="joinBtn" class="btn btn-secondary">ENTRAR</button></div>
+        </div>
+        <p id="homeMessage" class="message" role="status"></p>
+        <div class="card-foot"><span>♧</span> Crie uma sala e compartilhe o código com seus amigos.</div>
+      </div>
+      <footer class="home-footer"><span>SQUAD BITS <span class="footer-dot">●</span> COOPERAR É O SUPERPODER</span><span>FEITO PARA JOGAR EM EQUIPE</span></footer>
+    </section>
+
+    <section id="lobbyScreen" class="screen lobby-screen hidden">
+      <div class="lobby-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> SALA PRIVADA</div><h1>Reúna sua <span>equipe.</span></h1><p>Convide seus amigos e preparem-se para os desafios.</p></div><button id="leaveLobbyBtn" class="btn btn-ghost">← SAIR</button></div>
+      <div class="lobby-grid">
+        <div class="lobby-card code-card"><span class="card-kicker">CÓDIGO DA SALA</span><div id="lobbyCode" class="big-code">------</div><button id="copyCodeBtn" class="copy-button">▣ COPIAR CÓDIGO</button><div class="share-note">Compartilhe este código para seus amigos entrarem.</div><div class="lobby-divider"></div><div class="room-rules"><span>♟</span><div><b>Até 8 jogadores</b><small>Quando todos estiverem prontos, iniciem juntos.</small></div></div></div>
+        <div class="lobby-card players-card"><div class="players-heading"><div><span class="card-kicker">SUA EQUIPE</span><h2>Jogadores <span id="playerCount">1/8</span></h2></div><span class="waiting-tag"><i></i> AGUARDANDO</span></div><div id="playersList" class="players-list"></div><div class="lobby-actions"><button id="startBtn" class="btn btn-primary wide">COMEÇAR A AVENTURA <b>→</b></button><p id="lobbyMessage" class="message" role="status">O criador da sala pode iniciar a partida.</p></div></div>
+      </div>
+      <div class="world-strip"><div class="world-mini world-1">01–05 <b>PRADARIA</b></div><div class="world-mini world-2">06–10 <b>GRUTAS</b></div><div class="world-mini world-3">11–15 <b>POENTE</b></div><div class="world-mini world-4">16–20 <b>FÁBRICA</b></div><div class="world-mini world-5">21–25 <b>GELO</b></div><div class="world-mini world-6">26–30 <b>ÓRBITA</b></div></div>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen hidden">
+      <div class="game-topline"><div class="game-brand"><span class="brand-mark small"><i></i><i></i><i></i><i></i></span> SQUAD BITS</div><div class="game-level"><span id="worldName">PRADARIA PIXEL</span><b id="levelName">FASE 01 — PRIMEIRO PASSO</b></div><div class="game-top-actions"><span id="gamePlayers" class="mini-player-count">● 1/8</span><button id="leaveGameBtn" class="btn btn-ghost small-btn">SAIR ✕</button></div></div>
+      <div class="game-frame">
+        <canvas id="gameCanvas" width="960" height="540" aria-label="Jogo de plataforma cooperativo"></canvas>
+        <div class="canvas-vignette"></div>
+        <div class="game-hud"><div class="hud-left"><div class="hud-pill"><span class="hud-icon">◆</span><span id="keyStatus">PEGUEM A CHAVE</span></div><div id="switchStatus" class="hud-pill switch-pill hidden">⚡ MECANISMOS</div></div><div id="phaseCounter" class="phase-counter">01 <span>/ 30</span></div></div>
+        <div id="gameOverlay" class="game-overlay hidden"><div class="overlay-panel"><div id="overlayIcon" class="overlay-icon">✦</div><div id="overlayKicker" class="card-kicker">FASE CONCLUÍDA</div><h2 id="overlayTitle">Mandaram bem!</h2><p id="overlayText">Todo mundo chegou à saída.</p><button id="overlayAction" class="btn btn-primary wide">PRÓXIMA FASE →</button></div></div>
+        <div id="toast" class="toast hidden"></div>
+      </div>
+      <div class="game-bottom"><div class="controls-help"><span class="keycap">A</span><span class="keycap">D</span><span>ou</span><span class="keycap">←</span><span class="keycap">→</span><small>MOVER</small><span class="control-gap"></span><span class="keycap">ESPAÇO</span><span class="keycap">W</span><small>PULAR</small></div><div class="game-tip">DICA: <span id="gameTip">A chave abre o caminho para a saída.</span></div><button id="restartBtn" class="restart-btn">↻ REINICIAR FASE</button></div>
+      <div class="mobile-controls"><button id="leftTouch" aria-label="Mover para a esquerda">◀</button><button id="rightTouch" aria-label="Mover para a direita">▶</button><button id="jumpTouch" aria-label="Pular">PULAR ↑</button></div>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>
